@@ -1,0 +1,44 @@
+{
+ "title": "NEW Hub",
+ "code": "CODE",
+ "subtitle": "University · Subject name · organised by test",
+ "intro": "One or two sentences: what the course is and what comes next (test date, format).",
+ "footer": "Built from the course material of TEACHER (UNIVERSITY). If anything here disagrees with the slides, the slides win.",
+ "testsCard": false,
+ "exam": {
+  "n": 20,
+  "min": 30
+ },
+ "grades": [
+  [
+   90,
+   "A (90 %+)"
+  ],
+  [
+   75,
+   "B (75 %+)"
+  ],
+  [
+   60,
+   "C (60 %+)"
+  ],
+  [
+   0,
+   "Failed"
+  ]
+ ],
+ "lectures": [
+  "lectures/t1"
+ ],
+ "tests": [
+  {
+   "id": "test1",
+   "title": "Test 1",
+   "sub": "What it covers, how many points, how long, on paper or online.",
+   "badge": "Date",
+   "lectures": [
+    "t1"
+   ]
+  }
+ ]
+}

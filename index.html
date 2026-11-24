@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Study Hubs</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#16202a;--mute:#5b6875;--line:#d9e0e6;--acc:#2f6fdf;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#10161a;--card:#182128;--ink:#e6edf2;--mute:#97a4ae;--line:#2a3640;--acc:#7aa7ff;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:32px max(16px,env(safe-area-inset-right)) 48px max(16px,env(safe-area-inset-left))}
+h1{font-size:clamp(28px,6vw,40px);margin:0 0 6px;line-height:1.1}
+.lede{color:var(--mute);margin:0 0 24px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+a.hub{display:grid;gap:4px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);text-decoration:none;border-top:4px solid var(--c)}
+a.hub:hover{border-color:var(--c)}
+a.hub:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.hub b{font-size:1.15rem}.hub span{color:var(--mute);font-size:.92rem}.hub small{color:var(--mute);font-size:.82rem}
+h2{font-size:1.2rem;margin:32px 0 10px}
+ul{margin:0;padding-left:20px;display:grid;gap:6px}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main>
+<h1>Study Hubs</h1>
+<p class="lede">One engine, one hub per course: lessons in small bites, flashcards, games, Mastery stars, mock tests, review and the Study Cat. Progress is saved in your browser.</p>
+<div class="grid">
+  <a class="hub" style="--c:#b7791f" href="https://mrsimonm.github.io/geo-hub/"><b>Geology Hub</b><span>ČZU · ZOX101E Geology</span><small>Weekly tests, lecture slides panel</small></a>
+  <a class="hub" style="--c:#2f6fdf" href="https://mrsimonm.github.io/stats-hub/"><b>Statistics Hub</b><span>VŠE · 4ST601 Statistics</span><small>Formula panel, seminar exercises</small></a>
+  <a class="hub" style="--c:#9b59b6" href="https://mrsimonm.github.io/micro-hub/"><b>Micro Hub</b><span>VŠE · 3BE123 Microeconomics</span><small>Formula coach, interactive graphs</small></a>
+  <a class="hub" style="--c:#2c8a5e" href="https://mrsimonm.github.io/eco-hub/"><b>Eco Hub</b><span>ČZU · Fundamentals of Ecology</span><small>Tick-all-that-apply drill, real exam format</small></a>
+</div>
+<h2>Build a new hub</h2>
+<ul>
+  <li><a href="https://github.com/mrsimonm/hub-kit/blob/main/GUIDE.md">Guide</a>: how the hubs work and how to make a new one.</li>
+  <li><a href="https://github.com/mrsimonm/hub-kit/blob/main/OUTLINE.md">Outline</a>: every hub, its course, repo and extras.</li>
+  <li><a href="base/">Base starter, running</a>: the engine with one example lecture. Source in <a href="https://github.com/mrsimonm/hub-kit/tree/main/base">base/</a>.</li>
+</ul>
+</main>
+</body>
+</html>
