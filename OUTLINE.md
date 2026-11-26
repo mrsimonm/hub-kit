@@ -7,7 +7,20 @@ Every hub is the same engine with different course data. Live sites are on GitHu
 | **Geology Hub** | ZOX101E Geology (Mgr. Václav Santolík) | ČZU Prague | https://mrsimonm.github.io/geo-hub/ | `mrsimonm/geo-hub` | `geoHub.v1` | weekly-test card, lecture slides panel, old JS topic files (`topics/`), day/night button, Firebase sync on |
 | **Statistics Hub** | 4ST601 Statistics | VŠE Prague | https://mrsimonm.github.io/stats-hub/ | `mrsimonm/stats-hub` | `statsHub.v1` | formula panel, seminar exercises, transcripts, Firebase sync on |
 | **Micro Hub** | 3BE123 Microeconomics (Ing. Zuzana Dzbánková) | VŠE Prague | https://mrsimonm.github.io/micro-hub/ | `mrsimonm/micro-hub` | `microHub.v1` | formula coach, interactive graphs and drills, seminar exercises, Test 2 study path |
+| **Op Man Hub** | 3BE216 Operations Management (Felipe Martinez) | VŠE Prague | https://mrsimonm.github.io/opman-hub/ | `mrsimonm/opman-hub` | `opmanHub.v1` | interactive widgets (steel bars, lead-time timelines, break-even, drag/sort/order), calculation drills, 90-min mock tests, practice-test apply sets |
 | **Eco Hub** | Fundamentals of Ecology (Martin Bulla & Peter Mikula) | ČZU Prague | https://mrsimonm.github.io/eco-hub/ | `mrsimonm/eco-hub` | `ecoHub.v1` | "tick all that apply" drill (exam scoring), real exam format (19 q / 10 min), exam study path |
+| **Bio Hub** | ZEX108E Fundamentals of Biology | ČZU Prague | https://mrsimonm.github.io/bio-hub/ | `mrsimonm/bio-hub` | `bioHub.v1` | 12 lectures, 24-question exam practice |
+
+## Family hubs (several subjects in one app)
+
+A family hub puts several subject hubs behind one picker, with a `Subjects ▾` switcher, one Google sign-in, one shared Study Cat and one Statistics page. Each subject is synced in from its own repo above; never edit the copies inside a family hub. All family hubs share Firebase project `geo-hub-96426`.
+
+| Family hub | For | Subjects | Live site | Repo | Storage prefix |
+|---|---|---|---|---|---|
+| **Study Hub** | Simon | Bio, Eco, Geology | https://mrsimonm.github.io/study-hub/ | `mrsimonm/study-hub` | `studyHub.*` |
+| **Margo's Study Hub** | Margo | Statistics, Micro, Op Man | https://mrsimonm.github.io/margo-hub/ | `mrsimonm/margo-hub` | `margoHub.*` |
+
+Their hub-level files (picker, switcher, offline cache, Study Cat, stats, sign-in) all come from [shell/](shell/) in this kit. See GUIDE.md, section 7.
 
 ## What every hub has (the engine)
 

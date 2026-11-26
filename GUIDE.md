@@ -73,3 +73,24 @@ Create a Firebase project for the hub, paste its web config into `lib/firebase-c
 - Run the validator after every change. Don't rename or delete files without a reason.
 - After changing shell files (`index.html`, `app.js`, `lib/*`), bump the cache version in `sw.js`.
 - Update [OUTLINE.md](OUTLINE.md) and `index.html` in this kit when a hub is added.
+
+## 7. Family hubs and the shared shell
+
+A family hub (`study-hub`, `margo-hub`) bundles several subject hubs into one app. The hub-level files are the same for every family hub and live once in [shell/](shell/): `index.html` (picker), `switcher.js`, `sw.js`, `manifest.webmanifest`, `firestore.rules`, `lib/cat.js`, `lib/stats.js`, `lib/firebase-*.js`, `tools/hub.js`, `tools/validate.js`, icons. In a hub, each of these starts with the line "Generated from hub-kit/shell, edit there".
+
+Each family hub only keeps its own settings:
+
+- `hub.json`: `id` (folder name, also the offline-cache name), `name`, `short`, `prefix` (storage keys, e.g. `studyHub`; **never change it**, or people lose their progress and Study Cat), `description`, `tagline`, `school`, `colors`, `firebaseProject`.
+- `subjects.json`: one entry per subject (`id`, `name`, `short`, `icon`, `code`, `sub`, `desc`, `note`, `color`, `key`, `src`, `course`). Optional: `hubDoc` (Firestore doc; `""` means the old `users/{uid}` location, used by Geology), `examKey` (default `exam40`), `catalogStatic` (lectures that are old JS files, not in `course.json`), `extraShell` (extra files for the offline cache).
+
+**Shell change** (looks, picker, switcher, Study Cat, stats, sign-in):
+```bash
+# edit hub-kit/shell/..., then:
+node ~/Projects/hub-kit/tools/build.js all --check --diff   # preview, writes nothing
+node ~/Projects/hub-kit/tools/build.js all                 # write into every hub in hubs.json, then sync + validate
+```
+Check each hub locally, then commit and push each hub (and hub-kit). Placeholders in shell files: `{{HUB_NAME}}`, `{{HUB_SHORT}}`, `{{PREFIX}}`, `{{ID}}`, `{{DESCRIPTION}}`, `{{TAGLINE}}`, `{{SCHOOL}}`, `{{BG_COLOR}}`, `{{THEME_COLOR}}`. Lists between `HUB:BEGIN` / `HUB:END` are filled from `subjects.json` by the hub's `tools/hub.js sync`; leave them empty in the shell.
+
+**Subject change** (lessons, questions): edit and commit the subject repo (`~/Projects/<id>-hub`), then in the family hub run `node tools/hub.js sync`, commit and push.
+
+**New family hub**: make a folder with `hub.json` and `subjects.json` (copy from an existing family hub), add it to [hubs.json](hubs.json), run `node tools/build.js all`, then publish it (section 4).
